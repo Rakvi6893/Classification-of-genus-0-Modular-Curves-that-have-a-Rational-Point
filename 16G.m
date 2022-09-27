@@ -1,3 +1,8 @@
+/* For the genus 0 congruence subgroup with Cummins Pauli label 16G0, when we compute a pair (P^1,\pi) with properties as explained in 
+section 8.1 we notice that there are some nontrivial cocycles from Gal(K/Q) -> A_{G_1}. For each such cocycle we compute the set of cocycles
+{Gamma_j'} as explained in paragraph following lemma 8.5 at level 15. For each Gamma_j' we compute the twist corresponding to it along with j-map. */
+
+
 function EvaluateRationalFunction(f,a)
 /* Input: f a rational function in some K(t), a is an element of K o\
 r a pair giving a point in P^1(K). The function returns f(a) as a pair represe\
@@ -199,6 +204,12 @@ return C;
 end function;
 
 function psi(g,N,M,b)
+
+/* Input : 1) Here M,N and b are integers such that M is coprime to N and every prime factor of b is also a prime factor of N.
+           2) Here g is an element of Gal(K_{M*N*b}/K_M).
+	   
+   Output :Returns an element g1 of Gal(K_{N*b}/Q) that respects the action of g on primitive N*b-th root of unity. */ 
+	   
 
 L<z1>:= CyclotomicField(M*N*b);
 L1<z>:=CyclotomicField(N*b);
