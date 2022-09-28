@@ -37,6 +37,9 @@ keys:=[k: k in Keys(CPlist)];
 level:=[CPlist[k]`N:k in keys];
 ParallelSort(~level,~keys);
 
+
+// Here we find a pair (PP^1,\pi_1) which is isomorphic to (X_{\Gamma},\pi_{\Gamma}) at some N.
+
 for k in keys do;
     
     if k eq "1A" then continue; end if;
