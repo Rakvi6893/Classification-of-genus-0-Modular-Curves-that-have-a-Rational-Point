@@ -13357,26 +13357,6 @@ G0list["48A-48H"]:=rec<G0group |
     
     A := [                   0, -zeta_48^9 + zeta_48,                  1 ,                   0]>;
 
-function Simulsim(A1,B1,A2,B2,K)
-/* Input : Four 2x2 matrices over field K
- Output : A matrix C such that CA1C^(-1)=A2 and CB1C^(-1)=B2 ; */
- 
- A1:=MatrixRing(K,2)!A1;
-  A2:=MatrixRing(K,2)!A2;
- B1:=MatrixRing(K,2)!B1;
- B2:=MatrixRing(K,2)!B2;
-X:=A1[1,1]; Y:=A1[1,2]; Z:=A1[2,1]; W:=A1[2,2];
-x:=A2[1,1]; y:=A2[1,2]; z:=A2[2,1]; w:=A2[2,2];
-A:=B1[1,1]; B:=B1[1,2]; C:=B1[2,1]; D:=B1[2,2];
-a:=B2[1,1]; b:=B2[1,2]; c:=B2[2,1]; d:=B2[2,2];
-L:=Matrix(K,4,4,[(X-x)-(A-a),(Z-C),(b-y),0,(Y-B),(W-x)-(D-a),0,(b-y),(c-z),0,(X-w)-(A-d),(Z-C),0,(c-z),Y-B,(W-w)-(D-d)]);
-for C in Generators(Nullspace(L)) do
-if C[1]*C[4]-C[2]*C[3] ne 0 then
-
-return C;
-else continue; end if;
-end for;
-end function;
 
 // Doing LLL on matrices so that maps look nice!
 for k in Keys(G0list) do;
@@ -13412,8 +13392,7 @@ keys:=[k: k in Keys(G0list)];
 level:=[G0list[k]`N:k in keys];
 ParallelSort(~level,~keys);
  for k in keys do
-      if k eq "4G-8B" or k eq "8H-8A" or k eq "4G-8D" or k eq "8G-8L" or k eq "4G-4B" or k eq "8N-8F" or k eq "8N-16E" or k eq "8N-8E" or k eq "8N-16B" or k eq "8N-8B" or k eq "16G-16K" or k eq "16G-16I" or k eq "16G-16H" or k eq "16G-16G" or k eq "16G-16E" then
-      //k;
+     
       if k eq "1A-1A" then
       continue;
     end if;
@@ -13532,8 +13511,8 @@ ParallelSort(~level,~keys);
               if Determinant(A) eq -2 then B1:=A;
               end if;
               end for;
-              C:=Simulsim(A1,B1,Matrix(Rationals(),2,2,[0,-1,1,0]),Matrix(Rationals(),2,2,[1,1,1,-1]),Rationals());
-            Gamma`cas:="Case 6"; Gamma`C:=C;
+              //C:=Simulsim(A1,B1,Matrix(Rationals(),2,2,[0,-1,1,0]),Matrix(Rationals(),2,2,[1,1,1,-1]),Rationals());
+            Gamma`cas:="Case 6"; //Gamma`C:=C;
              G0list[k]:=Gamma;
          
          elif S eq {1,5,-6,-30} then
@@ -13544,8 +13523,8 @@ ParallelSort(~level,~keys);
               if Determinant(A) eq -6 then B1:=A;
               end if;
               end for;
-            C:=Simulsim(A1,B1,Matrix(Rationals(),2,2,[0,-5,1,0]),Matrix(Rationals(),2,2,[-1,5,1,1]),Rationals());
-            Gamma`cas:="Case 7"; Gamma`C:=C;
+            //C:=Simulsim(A1,B1,Matrix(Rationals(),2,2,[0,-5,1,0]),Matrix(Rationals(),2,2,[-1,5,1,1]),Rationals());
+            Gamma`cas:="Case 7"; //Gamma`C:=C;
              G0list[k]:=Gamma;
          
          elif S eq {1,2,-3,-6} then
@@ -13556,8 +13535,8 @@ ParallelSort(~level,~keys);
               if Determinant(A) eq -6 then B1:=A;
               end if;
             end for;  
-            C:=Simulsim(A1,B1,Matrix(Rationals(),2,2,[1,2,1,-1]),Matrix(Rationals(),2,2,[-2,2,1,2]),Rationals());
-            Gamma`cas:="Case 8"; Gamma`C:=C;
+            //C:=Simulsim(A1,B1,Matrix(Rationals(),2,2,[1,2,1,-1]),Matrix(Rationals(),2,2,[-2,2,1,2]),Rationals());
+            Gamma`cas:="Case 8"; //Gamma`C:=C;
              G0list[k]:=Gamma;
          elif S eq {1,-1} then
             for A in T do 
@@ -13567,8 +13546,8 @@ ParallelSort(~level,~keys);
               if Determinant(A) eq -1 then B1:=A;
               end if;
             end for;  
-            C:=Simulsim(A1,B1,Matrix(Rationals(),2,2,[0,-1,1,0]),Matrix(Rationals(),2,2,[-1,0,0,1]),Rationals());
-            Gamma`cas:="Case 5"; Gamma`C:=C;Gamma`alpha:=1;
+            //C:=Simulsim(A1,B1,Matrix(Rationals(),2,2,[0,-1,1,0]),Matrix(Rationals(),2,2,[-1,0,0,1]),Rationals());
+            Gamma`cas:="Case 5"; //Gamma`C:=C;Gamma`alpha:=1;
             G0list[k]:=Gamma;
          else
          for s in S do; 
@@ -13588,27 +13567,26 @@ ParallelSort(~level,~keys);
                   B1:=A;
               end if;
           end for;  
-            C:=Simulsim(A1,B1,Matrix(Rationals(),2,2,[0,-(Gamma`alpha),1,0]),Matrix(Rationals(),2,2,[0,Gamma`alpha,1,0]),Rationals());
-            Gamma`cas:="Case 5"; Gamma`C:=C;
+            //C:=Simulsim(A1,B1,Matrix(Rationals(),2,2,[0,-(Gamma`alpha),1,0]),Matrix(Rationals(),2,2,[0,Gamma`alpha,1,0]),Rationals());
+            Gamma`cas:="Case 5"; //Gamma`C:=C;
             G0list[k]:=Gamma;
          end if;
       end if;
       end if;
       //print "============================";
       
-      end if;
+     
 end for;
 keys:=[k: k in Keys(G0list)];
 ind:=[G0list[k]`index:k in keys];
 ParallelSort(~ind, ~keys);
 for k in keys do;
-   if k eq "4G-8B" or k eq "8H-8A" or k eq "4G-8D" or k eq "8G-8L" or k eq "4G-4B" or k eq "8N-8F" or k eq "8N-16E" or k eq "8N-8E" or k eq "8N-16B" or k eq "8N-8B" or k eq "16G-16K" or k eq "16G-16I" or k eq "16G-16H" or k eq "16G-16G" or k eq "16G-16E" then
+   
    if k eq "1A-1A" then continue; end if;
    Gamma:=G0list[k];
-   if Gamma`cas eq "Case 5" or Gamma`cas eq "Case 2" then
-   Sprintf("%o & {$%o$} & {%o} & {$%o$} & {$%o$}" , Sprint(Gamma`label), Gamma`index, Gamma`cas, Gamma`C, Gamma`alpha);
-   else
-   Sprintf("%o & {$%o$} & {%o} & {$%o$}" , Sprint(Gamma`label), Gamma`index, Gamma`cas, Gamma`C);
-   end if;
-   end if;
+   
+   Sprintf("%o & {$%o$} & {%o} & {$%o$} & {$%o$}" , Sprint(Gamma`label), Gamma`index, Gamma`cas);
+   
+   
+   
 end for;
