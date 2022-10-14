@@ -17,7 +17,7 @@ G0group := recformat<N:RngIntElt, label:MonStgElt, sl2label:MonStgElt, gens, ind
     AG :          Group of f such that JG=JG(f)   
     
 */
-load "Congruence Subgroups.m";
+load "Genus 0 Congruence Subgroups.m";
 load "Rational Functions.m";
 zeta_3:=RootOfUnity(3);
 zeta_4:=RootOfUnity(4);
