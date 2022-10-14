@@ -27,7 +27,7 @@ Agroup := recformat<N:RngIntElt, label:MonStgElt, gens, index:RngIntElt, G:GrpMa
             
 
 
-load "Congruence Subgroups.m";
+load "Genus 0 Congruence Subgroups.m";
 load "Rational Functions.m";
 
 
