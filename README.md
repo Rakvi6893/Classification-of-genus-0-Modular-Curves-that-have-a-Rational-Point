@@ -10,6 +10,8 @@ Genus 0 Congruence Subgroups.m == For a genus 0 congruence subgroup Gamma (up to
  
  Rational functions.m  == Contains the required functions for loading the file "Computing X_G.m"
  
+ Note : Please load the files Rational functions.m and Hauptmodul and J(t).m together before loading any other file.
+ 
  Generators.m  == Contains the code to produce generators G corresponding to pairs computed in theorem 1.2
  
  Tables *-*.m == Contains the code to produce tables *-*
