@@ -1,5 +1,6 @@
 # Classification-of-genus-0-Modular-Curves-that-have-a-Rational-Point
 
+
 Genus 0 Congruence Subgroups.m == For a genus 0 congruence subgroup Gamma (up to conjugation in PGL_2(Z)) we compute its hauptmodul h, and 
                                   a rational function pi_(t) in K_N(t) such that pi(h)=j. Here N is the level of Gamma, K_N is the N-th cyclotomic field
                                   and j is the modular j-invariant function.
@@ -10,9 +11,7 @@ Genus 0 Congruence Subgroups.m == For a genus 0 congruence subgroup Gamma (up to
  
  Rational functions.m  == Contains the required functions for loading the file "Computing X_G.m"
  
- Note : Please load the files Rational functions.m and Hauptmodul and J(t).m together before loading any other file.
- 
- Generators.m  == Contains the code to produce generators G corresponding to pairs computed in theorem 1.2
+Generators.m  == Contains the code to produce generators G corresponding to pairs computed in theorem 1.2
  
  Tables *-*.m == Contains the code to produce tables *-*
  
