@@ -1,4 +1,4 @@
- 
+ load "Hauptmodul and J(t).m";
 function SigmaJ(J,g) 
 
 /* Input : A function J(t) which is an element in field K(t) and g which is in Gal(K/Q) 
